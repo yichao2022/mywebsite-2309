@@ -1,9 +1,8 @@
 ---
-title: "Projects"
+title: "Assignment"
 ---
 
-## Project 1
+## Assignment 1
 
-## Project 2
+## Assignment 2
 
-## Project 3
