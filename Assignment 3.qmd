@@ -1,0 +1,25 @@
+---
+title: "Assignment 3"
+---
+
+## Download COVID data from OWID GitHub
+
+owidall = read.csv("https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true")
+
+# Deselect cases/rows with OWID
+
+owidall = owidall\[!grepl("\^OWID", owidall\$iso_code), \]
+
+# Subset by continent: Europe
+
+owideu = subset(owidall, continent=="Europe")
+
+ # install.packages("ggplot2")
+
+library(ggplot2) \# Create a scatterplot matrix with ggplot2
+
+ggplot(owideu, aes(x = date, y = new_deaths)) +geom_point()+facet_grid(.\~., scales = "free")+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+scatterplot_matrix \<- ggplot(owideu, aes(x = date, y =new_deaths)) + geom_point() +labs(x = "Date", y = "Daily Deaths (in 1000s)")
+
+![](366984034a1a4b589d4924aaa2ef88d2.png)

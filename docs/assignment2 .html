@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Yichao Jin’s website - Assignment</title>
+<title>Yichao Jin’s website - Assignment 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,8 +82,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page">Assignment</a>
+    <a class="nav-link" href="./projects.html">Assignment</a>
   </li>  
+  <li class="dropdown-header">
+ Assignment3.qmd</li>
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
@@ -95,22 +97,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link active" data-scroll-target="#assignment-1">Assignment 1</a></li>
-  <li><a href="#assignment-2" id="toc-assignment-2" class="nav-link" data-scroll-target="#assignment-2">Assignment 2</a></li>
-  <li><a href="#assignment-3" id="toc-assignment-3" class="nav-link" data-scroll-target="#assignment-3">Assignment 3</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment</h1>
+<h1 class="title">Assignment 2</h1>
 </div>
 
 
@@ -124,119 +118,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="assignment-1" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-1">Assignment 1</h2>
-</section>
-<section id="assignment-2" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-2">Assignment 2</h2>
-<p>Start plotting from basics</p>
-<p>Note the order</p>
-<p>plot(pressure, pch=16)<br>
-text(150, 600, “Pressure (mm Hg)(Celsius)”)</p>
-<p><img src="Rplot.png" width="497" height="102"></p>
-<p># Setting the parameter (3 rows by 2 cols)</p>
-<p>par(mfrow=c(3, 2))</p>
-<p># Scatterplot</p>
-<p># Note the incremental additions</p>
-<p>x &lt;- c(0.5, 2, 4, 8, 12, 16)</p>
-<p>y1 &lt;- c(1, 1.3, 1.9, 3.4, 3.9, 4.8)</p>
-<p>y2 &lt;- c(4, .8, .5, .45, .4, .3)</p>
-<p># Setting label orientation, margins c(bottom, left, top, right) &amp; text size</p>
-<p>par(las=1, mar=c(4, 4, 2, 4), cex=.7)</p>
-<p>plot.new()</p>
-<p>plot.window(range(x), c(0, 6))</p>
-<p>lines(x, y1)</p>
-<p>lines(x, y2)</p>
-<p>points(x, y1, pch=16, cex=2) # Try different cex value?</p>
-<p>points(x, y2, pch=21, bg=“white”, cex=2) # Different background color</p>
-<p>par(col=“gray50”, fg=“gray50”, col.axis=“gray50”)</p>
-<p>axis(1, at=seq(0, 16, 4)) # What is the first number standing for?</p>
-<p>axis(2, at=seq(0, 6, 2))</p>
-<p>axis(4, at=seq(0, 6, 2))</p>
-<p>box(bty=“u”)</p>
-<p>mtext(“Travel Time (s)”, side=1, line=2, cex=0.8)</p>
-<p>mtext(“Responses per Travel”, side=2, line=2, las=0, cex=0.8)</p>
-<p>mtext(“Responses per Second”, side=4, line=2, las=0, cex=0.8)</p>
-<p>text(4, 5, “Bird 131”)</p>
-<p>par(mar=c(5.1, 4.1, 4.1, 2.1), col=“black”, fg=“black”, col.axis=“black”)</p>
-<p><img src="Rplot02.png" class="img-fluid" width="516"></p>
-<p># Histogram</p>
-<p># Random data</p>
-<p>Y &lt;- rnorm(50)</p>
-<p># Make sure no Y exceed [-3.5, 3.5]</p>
-<p>Y[Y &lt; -3.5 | Y &gt; 3.5] &lt;- NA # Selection/set range</p>
-<p>x &lt;- seq(-3.5, 3.5, .1)</p>
-<p>dn &lt;- dnorm(x)</p>
-<p>par(mar=c(4.5, 4.1, 3.1, 0))</p>
-<p>hist(Y, breaks=seq(-3.5, 3.5), ylim=c(0, 0.5),</p>
-<p>col=“gray80”, freq=FALSE)</p>
-<p>lines(x, dnorm(x), lwd=2)</p>
-<p>par(mar=c(5.1, 4.1, 4.1, 2.1))</p>
-<p># Barplot</p>
-<p>par(mar=c(2, 3.1, 2, 2.1))</p>
-<p>midpts &lt;- barplot(VADeaths,</p>
-<p>col=gray(0.1 + seq(1, 9, 2)/11),</p>
-<p>names=rep(““, 4))</p>
-<p>mtext(sub(” “,”\n”, colnames(VADeaths)),</p>
-<p>at=midpts, side=1, line=0.5, cex=0.5)</p>
-<p>text(rep(midpts, each=5), apply(VADeaths, 2, cumsum) - VADeaths/2,</p>
-<p>VADeaths,</p>
-<p>col=rep(c(“white”, “black”), times=3:2),</p>
-<p>cex=0.8)</p>
-<p>par(mar=c(5.1, 4.1, 4.1, 2.1))</p>
-<p># Boxplot</p>
-<p>par(mar=c(3, 4.1, 2, 0))</p>
-<p>boxplot(len ~ dose, data = ToothGrowth,</p>
-<p>boxwex = 0.25, at = 1:3 - 0.2,</p>
-<p>subset= supp == “VC”, col=“white”,</p>
-<p>xlab=““,</p>
-<p>ylab=“tooth length”, ylim=c(0,35))</p>
-<p>mtext(“Vitamin C dose (mg)”, side=1, line=2.5, cex=0.8)</p>
-<p>boxplot(len ~ dose, data = ToothGrowth, add = TRUE,</p>
-<p>boxwex = 0.25, at = 1:3 + 0.2,</p>
-<p>subset= supp == “OJ”)</p>
-<p>legend(1.5, 9, c(“Ascorbic acid”, “Orange juice”),</p>
-<p>fill = c(“white”, “gray”),</p>
-<p>bty=“n”)</p>
-<p>par(mar=c(5.1, 4.1, 4.1, 2.1))</p>
-<p># Persp</p>
-<p>x &lt;- seq(-10, 10, length= 30)</p>
-<p>y &lt;- x</p>
-<p>f &lt;- function(x,y) { r &lt;- sqrt(x^2+y^2); 10 * sin(r)/r }</p>
-<p>z &lt;- outer(x, y, f)</p>
-<p>z[is.na(z)] &lt;- 1</p>
-<p># 0.5 to include z axis label</p>
-<p>par(mar=c(0, 0.5, 0, 0), lwd=0.5)</p>
-<p>persp(x, y, z, theta = 30, phi = 30,</p>
-<p>expand = 0.5)</p>
-<p>par(mar=c(5.1, 4.1, 4.1, 2.1), lwd=1)</p>
-<p># Piechart</p>
-<p>par(mar=c(0, 2, 1, 2), xpd=FALSE, cex=0.5)</p>
-<p>pie.sales &lt;- c(0.12, 0.3, 0.26, 0.16, 0.04, 0.12)</p>
-<p>names(pie.sales) &lt;- c(“Blueberry”, “Cherry”,</p>
-<p>“Apple”, “Boston Cream”, “Other”, “Vanilla”)</p>
-<p>pie(pie.sales, col = gray(seq(0.3,1.0,length=6)))</p>
-<p><img src="Rplot04.png" class="img-fluid" width="349"></p>
-<p><img src="Rplot05.png" class="img-fluid" width="344"></p>
-<p><img src="Rplot06.png" class="img-fluid" width="318"></p>
-<p><img src="Rplot07.png" class="img-fluid" width="326"></p>
-</section>
-<section id="assignment-3" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-3">Assignment 3</h2>
-<p>Download COVID data from OWID GitHub</p>
-<p>owidall = read.csv(“https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true”)</p>
-<p>Deselect cases/rows with OWID</p>
-<p>owidall = owidall[!grepl(“^OWID”, owidall$iso_code), ]</p>
-<p>#Subset by continent: Europe</p>
-<p>owideu = subset(owidall, continent==“Europe”)</p>
-<p># install.packages(“ggplot2”)</p>
-<p>library(ggplot2) # Create a scatterplot matrix with ggplot2</p>
-<p>ggplot(owideu, aes(x = date, y = new_deaths)) +geom_point()+facet_grid(.~., scales = “free”)+theme(axis.text.x = element_text(angle = 90, hjust = 1))</p>
-<p>scatterplot_matrix &lt;- ggplot(owideu, aes(x = date, y =new_deaths)) + geom_point() +labs(x = “Date”, y = “Daily Deaths (in 1000s)”)</p>
-<p><img src="366984034a1a4b589d4924aaa2ef88d2.png" class="img-fluid"></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

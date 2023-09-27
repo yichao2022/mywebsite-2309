@@ -6,14 +6,12 @@ about:
   image: img/profile.png
 ---
 
-:::{#me}
-
+::: {#me}
 ## Goals
 
 ## Education
 
 ## Experience
-
 :::
 
 Thanks for checking out my web site!
